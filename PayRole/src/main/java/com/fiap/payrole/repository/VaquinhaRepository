@@ -1,0 +1,8 @@
+package main.java.com.fiap.payrole.repository;
+
+import com.fiap.payrole.domain.*;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface VaquinhaRepository extends PagingAndSortingRepository<Contato, Long>{
+    Vaquinha findByName(String nome);
+}

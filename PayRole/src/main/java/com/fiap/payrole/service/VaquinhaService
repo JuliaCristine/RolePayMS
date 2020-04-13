@@ -1,0 +1,52 @@
+package main.java.com.fiap.payrole.service;
+
+import com.fiap.payrole.PayRoleApplication;
+import org.springframework.sterotype.Service;
+import com.fiap.payrole.domain.*;
+
+@Service
+public class VaquinhaService{
+
+    private final VaquinhaRepository vaquinhaRepository;
+    private final ContatoRepository contatoRepository;
+
+    @Autowired
+    public VaquinhaService(final VaquinhaRepository vaquinhaRepository,
+                           final ContatoRepository contatoRepository){
+        this.vaquinhaRepository = vaquinhaRepository;
+        this.contatoRepository = contatoRepository;
+    }
+
+    @Transactional
+    public Vaquinha add(final String nomeVaquinha,final double valor,final double divValor){
+        return vaquinhaRepository.save(new Vaquinha();
+            .setNomeVaquinha(nomeVaquinha)
+            .setValor(valor)
+            .setDivValor(divValor)
+            .setListaAmigos(getContatos)
+        );
+    }
+
+    public Contato getContatos(){
+        final String name = "Contato 1;
+        final Contato found contatoRepository.findByName(name);
+
+        if(found != null){
+            return found;
+        }
+
+        return contatoRepository.save(new Contato();
+            .getNome()
+            .getConta()
+            .getAgencia()
+        );
+    }
+
+    public Page<Vaquinha> listAll(){
+        return vaquinhaRepository.findAll(PageRequest.of(page: 0, size:20));
+    }
+
+    public Page<Contato> listAll(){
+        return contatoRepository.findAll(PageRequest.of(page: 0, size:20));
+    }
+}

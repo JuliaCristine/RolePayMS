@@ -1,0 +1,79 @@
+package main.java.com.fiap.payrole.domain;
+
+import java.util.*;
+import Contato;
+
+@Entity
+public class Vaquinha {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @NotNull
+    private double valor;
+    private ArrayList<String> listaAmigos;
+    private double divValor;
+    public Contato contato;
+
+    ArrayList<String> listaAmigos = new ArrayList();
+
+    public Vaquinha(){
+    }
+
+    public Vaquinha(final long id, final String nomeVaquinha,
+                    final double valor, final double divValor){
+        this.id = id;
+        this.nomeVaquinha = nomeVaquinha;
+        this.valor = valor;
+        this.divValor = divValor;
+
+        contato = new Contato();
+    }
+
+    public long getID(){
+        return this.id;
+    }
+    public String getNomeVaquinha(){
+        return this.id;
+    }
+    public double getValor(){
+        return this.valor;
+    }
+    public ArrayList<String> getListaAmigos() {
+        int n = listaAmigos.size();
+        System.out.printf("Contatos\n");
+
+        for (i=0; i<n; i++) {
+            System.out.printf(i, listaAmigos.get(i));
+        }
+    }
+
+    public double getDivValor(){
+        int lista = listaAmigos.size();
+        divValor = valor/lista;
+        return divValor;
+    }
+
+    public void setID(final long id){
+        this.id = id;
+    }
+    public void setNomeVaquinha(final String nomeVaquinha){
+        this.nomeVaquinha = nomeVaquinha;
+    }
+    public void setValor(final double valor){
+        this.valor = valor;
+    }
+    public void setListaAmigos(){
+        contato = new Contato();
+        for(int i = 0; i <= 5;i++){
+            listaAmigos.add(contato.getContato());
+        }
+    }
+
+
+    public getVaquinha(){
+        System.out.printf("Vaquinha: ",getID(),"\nNome:",getNomeVaquinha(),
+                          "\nValor individual: R$",getValor(), "\nTotal: R$",
+                          getValor(),"\nContatos:","\n",getListaAmigos());
+    }
+}

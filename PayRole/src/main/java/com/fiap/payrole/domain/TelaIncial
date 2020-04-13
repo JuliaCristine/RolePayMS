@@ -1,0 +1,32 @@
+package main.java.com.fiap.payrole.domain;
+
+import java.util.*;
+import Vaquinha;
+
+public class TelaInicial{
+
+    private ArrayList<String> vaquinhas;
+    private Vaquinha vaquinha;
+
+    public TelaInicial(){
+    }
+
+    public ArrayList<String> getVaquinhas() {
+        int n = vaquinhas.size();
+        vaquinha = new Vaquinha();
+
+        System.out.printf("Vaquinhas Cadastradas\n");
+
+        for (i=0; i<n; i++) {
+            System.out.printf(i, vaquinhas.get(i));
+        }
+    }
+
+    public void setVaquinhas(Vaquinha vaquinha) {
+        int n = vaquinhas.size();
+
+        for(int i = 0; i <= n;i++){
+            vaquinhas.add(vaquinha.getID(), vaquinha.getNomeVaquinha());
+        }
+    }
+}

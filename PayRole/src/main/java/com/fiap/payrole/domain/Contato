@@ -1,0 +1,76 @@
+package main.java.com.fiap.payrole.domain;
+
+import java.util.*;
+
+@Entity
+public class Contato {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @NotNull
+    private String nome;
+    private int conta;
+    private int agencia;
+    private ArrayList<String> contatos;
+
+    ArrayList<String> contatos = new ArrayList();
+
+    public Contato(){
+    }
+    public Contato(final long id,final String nome, final int conta, final int agencia){
+        this.id = id;
+        this.nome = nome;
+        this.conta = conta;
+        this.agencia = agencia;
+    }
+
+    private long getId(){
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getConta() {
+        return conta;
+    }
+
+    public int getAgencia() {
+        return agencia;
+    }
+
+    public ArrayList<String> getContatos(){
+        int n = contato.size();
+        System.out.printf("Contatos\n");
+
+        for (i=0; i<n; i++) {
+            System.out.printf(i, contato.get(i));
+        }
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setConta(int conta) {
+        this.conta = conta;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public void setContatos() {
+        int n = contato.size();
+
+        for(int i = 0; i <= n;i++){
+            contato.add(getNome(),getConta(),getAgencia());
+        }
+    }
+}
